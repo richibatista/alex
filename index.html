@@ -1,3 +1,157 @@
 <!doctype html>
-<html lang="es"><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/><title>Alex - Responsive</title>
-<style>body{margin:0;font-family:system-ui,Arial;background:linear-gradient(180deg,#f8fbff,#fff);min-height:100vh;display:flex;align-items:center;justify-content:center;padding:24px;color:#081018}.wrapper{width:100%;max-width:1100px;background:#fff;border-radius:14px;box-shadow:0 12px 40px rgba(0,0,0,0.08);overflow:hidden;display:flex;gap:0}.left{flex:0 0 380px;background:linear-gradient(180deg,#fff,#fff);padding:24px;display:flex;flex-direction:column;align-items:center;gap:14px}.right{flex:1;padding:24px}.portrait{width:320px;height:320px;border-radius:14px;overflow:hidden;border:8px solid rgba(255,255,255,0.9);box-shadow:0 10px 30px rgba(0,0,0,0.12)}.portrait img{width:100%;height:100%;object-fit:cover}h1{margin:0;font-size:26px}.message{font-size:17px;line-height:1.7;margin-top:10px}.controls{margin-top:16px;display:flex;gap:12px;flex-wrap:wrap}.btn{padding:12px 14px;border-radius:12px;background:#ff6b00;color:#fff;text-decoration:none;font-weight:700}@media(max-width:900px){.wrapper{flex-direction:column}.left{width:100%}.portrait{width:100%;height:260px;border-radius:12px}}</style></head><body><div class="wrapper"><div class="left"><div class="portrait"><img src="Foto_Alex.jpg" alt="Foto Alexandre"></div><div style="font-weight:700">Alexandre — Alex / Xandy</div><div style="color:#556876;font-size:14px">16 años • Juguetón</div></div><div class="right"><h1>🎄 ¡Feliz Navidad, Alexandre!</h1><div class="message">Querido Alexandre (Alex / Xandy),<br><br>estas fiestas quiero decirte algo con todo mi cariño: eres un joven lleno de vida y de alegría. Tu forma de bromear, de jugar y de hacer reír a la gente es una luz que llena la casa. Esa chispa tuya es preciosa y nos alegra cada día.<br><br>Al mismo tiempo, quiero pedirte que sigas aprendiendo a leer los momentos: a veces las personas no están con humor para seguir una broma, y otras veces necesitan silencio o apoyo. Saber cuándo bromear y cuándo contenerse no te quita alegría —te hace aún más respetuoso y querido.<br><br>Eres una persona cuidadosa: te preocupas por los demás cuando los ves mal, y eso demuestra lo grande que tienes el corazón. A tus 16 años tienes por delante muchísimo por aprender y por construir. Haz lo que te guste, sí, pero empieza ahora a ponerle intención y disciplina a tus pasiones: eso hará que tus sueños se conviertan en realidad.<br><br>Estoy orgulloso de ti, de tu sonrisa y de tu fuerza. Que esta Navidad te traiga risas, abrazos y la claridad para empezar a dar pasos hacia lo que quieres ser.<br><br>Con todo mi amor,<br>Papá / Mamá<br></div><div class="controls"><a class="btn" href="https://www.youtube.com/watch?v=wagn8Wrmzuc&list=RDwagn8Wrmzuc&start_radio=1" target="_blank">🎧 Escuchar música</a><a class="btn" href="#" onclick="navigator.clipboard.writeText(document.querySelector('.message').innerText).then(()=>alert('Copiado'))">📋 Copiar</a></div></div></div></body></html>
+<html lang="pt">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Galeria Alex — Mobile</title>
+  <style>
+    :root {
+      --bg: #0f1724;
+      --card: #0b1220;
+      --accent: #1e90ff;
+      --thumb-border: 3px solid rgba(255,255,255,0.08);
+    }
+    html,body{height:100%;margin:0;background:linear-gradient(180deg,#051428 0%, #0f2a44 100%);font-family:system-ui,-apple-system,Segoe UI,Roboto,'Helvetica Neue',Arial}
+    .container{max-width:900px;margin:0 auto;padding:12px;box-sizing:border-box}
+    .card{background:rgba(255,255,255,0.02);border-radius:12px;padding:12px;color:#fff;box-shadow:0 6px 18px rgba(2,6,23,0.6)}
+    .title{font-size:18px;font-weight:600;margin-bottom:10px;text-align:center}
+    .main-photo{width:100%;height:calc(100vw * 0.75);object-fit:cover;border-radius:8px;display:block;margin:0 auto;}
+    /* Thumbnails row */
+    .thumbs{display:flex;gap:8px;overflow-x:auto;padding-top:12px;padding-bottom:6px}
+    .thumbs::-webkit-scrollbar{height:8px}
+    .thumb{flex:0 0 auto;width:84px;height:64px;border-radius:6px;overflow:hidden;cursor:pointer;box-shadow:0 2px 8px rgba(0,0,0,0.4)}
+    .thumb img{width:100%;height:100%;object-fit:cover;display:block;transform-origin:center;transition:transform .25s}
+    .thumb.selected{outline:4px solid var(--accent);transform:translateY(-3px)}
+    .thumb.selected img{transform:scale(1.05)}
+    /* Controls row */
+    .controls{display:flex;justify-content:space-between;align-items:center;padding-top:12px;gap:10px}
+    .btn{background:transparent;border:1px solid rgba(255,255,255,0.08);padding:8px 12px;border-radius:8px;color:#fff;font-weight:600;cursor:pointer}
+    .share-row{display:flex;gap:8px}
+    .share-icon{display:inline-flex;align-items:center;justify-content:center;width:40px;height:40px;border-radius:8px;background:linear-gradient(135deg,#1e90ff,#6dd5fa);color:#081029;font-weight:700;cursor:pointer}
+    /* Responsive adjustments */
+    @media(min-width:600px){
+      .main-photo{height:480px}
+      .thumb{width:100px;height:76px}
+    }
+  
+    .text{
+      margin-top:14px;
+      padding:12px;
+      background:rgba(255,255,255,0.04);
+      border-radius:10px;
+      font-size:15px;
+      line-height:1.6;
+      color:rgba(255,255,255,0.95);
+    }
+    .text h2{
+      margin-top:0;
+      font-size:18px;
+    }
+
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="card" role="region" aria-label="Galeria Alex">
+      <div class="title">Alex — Galeria (versão móvel)</div>
+      <div class="text">
+        <h2>🎄 Feliz Natal, Alex!</h2>
+        <p>
+          Querido Alex — estas fotos mostram um pouco da tua alegria e das aventuras que partilhas com a família.
+          Continuas a ser muito carinhoso, extremamente brincalhão e sempre pronto para uma piada.
+          Isso faz parte de quem és — mas lembra-te também de saber escolher os momentos.
+        </p>
+        <p>
+          És um excelente rapaz, preocupas-te com os outros, sobretudo quando os vês em dificuldades.
+          Ainda tens muito para aprender, mas também muito para oferecer ao mundo.
+        </p>
+        <p>
+          Que este Natal te traga tranquilidade, sonhos novos e força para começares, já hoje,
+          a dedicar-te ao que realmente gostas. ❤️
+        </p>
+      </div>
+
+      <img id="mainPhoto" class="main-photo" src="Alex1.jpg" alt="Alex foto principal" />
+      <div class="thumbs" id="thumbs">
+        <div class="thumb selected" data-src="Alex1.jpg"><img src="Alex1.jpg" alt="Alex 1"></div><div class="thumb" data-src="Alex2.jpg"><img src="Alex2.jpg" alt="Alex 2"></div><div class="thumb" data-src="Alex3.jpg"><img src="Alex3.jpg" alt="Alex 3"></div><div class="thumb" data-src="Alex4.jpg"><img src="Alex4.jpg" alt="Alex 4"></div><div class="thumb" data-src="Alex5.jpg"><img src="Alex5.jpg" alt="Alex 5"></div>
+      </div>
+      <div class="controls">
+        <div style="font-size:14px;color:rgba(255,255,255,0.8)">5 fotos</div>
+        <div class="share-row" aria-hidden="false">
+          <button class="btn" id="musicBtn" title="Ouvir música favorita">Ouvir música</button>
+          <div class="share-icon" id="shareNative" title="Partilhar">SH</div>
+          <a class="btn" id="twitterShare" href="#" title="Partilhar no Twitter">Twitter</a>
+          <a class="btn" id="waShare" href="#" title="Partilhar no WhatsApp">WhatsApp</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Swap main image when thumbnail clicked; support keyboard navigation
+    const thumbs = document.getElementById('thumbs');
+    const main = document.getElementById('mainPhoto');
+    const musicBtn = document.getElementById('musicBtn');
+    const shareNative = document.getElementById('shareNative');
+    const twitterShare = document.getElementById('twitterShare');
+    const waShare = document.getElementById('waShare');
+
+    // Favorite music link
+    const favMusic = 'https://www.youtube.com/watch?v=wagn8Wrmzuc&list=RDwagn8Wrmzuc&start_radio=1';
+
+    thumbs.addEventListener('click', (e) => {
+      const t = e.target.closest('.thumb');
+      if (!t) return;
+      selectThumb(t);
+    });
+
+    function selectThumb(t) {
+      thumbs.querySelectorAll('.thumb').forEach(n=>n.classList.remove('selected'));
+      t.classList.add('selected');
+      const src = t.getAttribute('data-src');
+      main.style.opacity = 0;
+      setTimeout(()=> {
+        main.src = src;
+        main.style.opacity = 1;
+      }, 150);
+    }
+
+    // Music button: open favourite track in new tab
+    musicBtn.addEventListener('click', ()=>{
+      window.open(favMusic, '_blank');
+    });
+
+    // Native share (mobile) or fallback to twitter
+    shareNative.addEventListener('click', async ()=>{
+      const url = location.href;
+      const text = 'Galeria do Alex — vê esta foto:';
+      if (navigator.share) {
+        try {
+          await navigator.share({title: 'Alex - Galeria', text, url});
+        } catch(e){console.log('share canceled', e)}
+      } else {
+        window.open('https://twitter.com/intent/tweet?text='+encodeURIComponent(text+' '+url),'_blank');
+      }
+    });
+
+    // Prepare social share links for Twitter and WhatsApp
+    const shareText='Galeria do Alex — vê esta foto:' + ' ' + encodeURIComponent(location.href);
+    twitterShare.href = 'https://twitter.com/intent/tweet?text=' + encodeURIComponent('Galeria do Alex — vê esta foto: ') + encodeURIComponent(location.href);
+    waShare.href = 'https://api.whatsapp.com/send?text=' + encodeURIComponent('Galeria do Alex — vê esta foto: '+location.href);
+
+    // keyboard accessibility: left/right to navigate thumbnails
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowRight' || e.key === 'ArrowLeft') {
+        const nodes = Array.from(thumbs.querySelectorAll('.thumb'));
+        const current = nodes.findIndex(n=>n.classList.contains('selected'));
+        if (current === -1) return;
+        let next = current + (e.key === 'ArrowRight' ? 1 : -1);
+        if (next < 0) next = nodes.length -1;
+        if (next >= nodes.length) next = 0;
+        selectThumb(nodes[next]);
+        nodes[next].scrollIntoView({behavior:'smooth',inline:'center'});
+      }
+    });
+    </script>
+</body>
+</html>
